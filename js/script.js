@@ -8,9 +8,6 @@ const nextPage = document.getElementById('next-page');
 const prevPage = document.getElementById('prev-page');
 const listaPersonajes = document.getElementById("character-list");
 
-/*nextPage.addEventListener('click', sumar(currentPage))
-prevPage.addEventListener('click', restar(currentPage))*/
-
 
 
 
@@ -24,13 +21,15 @@ const obtenerInfo = (url) => {
       }
     })
     .then((data) => {
-        sigpagina = data.info.next
-        antpagina = data.info.prev
-        if(currentPage === 1){
-            obtenerPersonajes(urlBase)
-        }else{
-            obtenerPersonajes(sigpagina)
-        }
+        nextPage.addEventListener('click', ((currentPage, urlBase) => {
+            currentPage++
+            urlBase = urlBase + '?page=' + currentPage
+        }))
+        prevPage.addEventListener('click', ((currentPage, urlBase) => {
+            currentPage
+            urlBase = urlBase + '?page=' + currentPage
+        }))
+        obtenerPersonajes(urlBase)
         
     })
     .catch((error) => {
