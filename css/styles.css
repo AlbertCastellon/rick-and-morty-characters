@@ -75,7 +75,16 @@ table {
 ul {  
   padding-top: 100px;
   list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
-
-
-
+li div {
+  padding: 6px;
+  border: 1px solid rgb(163, 212, 235);
+  margin: 8px;
+  border-radius: 2%;
+}
+img {
+  width: 225px;
+}
